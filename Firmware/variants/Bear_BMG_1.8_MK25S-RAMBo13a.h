@@ -19,8 +19,9 @@
 #define DEVELOPER
 
 // Printer name
-#define CUSTOM_MENDEL_NAME "Prusa Bear BMG MK2.5S"
+#define CUSTOM_MENDEL_NAME "Bear BMG MK2.5S"
 #define BONDTECH_MK25S
+#define BEAR_FRAME
 
 // Electronics
 #define MOTHERBOARD BOARD_RAMBO_MINI_1_3

@@ -2242,13 +2242,16 @@ bool calibrate_z_auto()
 	plan_buffer_line_destinationXYZE(feedrate / 60);
 	st_synchronize();
 	enable_endstops(endstops_enabled);
-	// if (PRINTER_TYPE == PRINTER_MK3) {
-	// 	current_position[Z_AXIS] = Z_MAX_POS + 2.0;
-	// }
-	// else {
-	// 	current_position[Z_AXIS] = Z_MAX_POS + 9.0;
-	// }
-  current_position[Z_AXIS] = Z_MAX_POS + 2.0;
+#ifdef BEAR_FRAME
+	current_position[Z_AXIS] = Z_MAX_POS + 2.0;
+#else
+	if (PRINTER_TYPE == PRINTER_MK3) {
+		current_position[Z_AXIS] = Z_MAX_POS + 2.0;
+	}
+	else {
+		current_position[Z_AXIS] = Z_MAX_POS + 9.0;
+	}
+#endif // BEAR_FRAME
 	plan_set_position_curposXYZE();
 	return true;
 }
